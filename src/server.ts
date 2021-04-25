@@ -1,14 +1,9 @@
-import express from "express";
-import "./database";
-import { routes } from "../routes";
+import { http } from "./http";
+import "./websocket/client";
 
 const port = 3333;
-const url = `http://localhost:${port}/`;
-const app = express();
+const url = `http://localhost:${port}/`
 
-app.use(express.json());
-app.use(routes);
-
-app.listen(port, () => {
+http.listen(port, () => {
     console.log(`Server is running on ${url}`)
 });
